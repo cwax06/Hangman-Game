@@ -8,15 +8,16 @@ var userText = document.getElementById("user-text");
 
 // Computer randomly select a possible answer from array
 
-
-
 document.onkeyup = function (event) {
-    userText.textContent = event.key;
 
-    var event = characters[Math.floor(Math.random() * characters.length)];
-    console.log(characters[i]);
+    var userGuess = event.key;
+
+    var computerGuess = characters[Math.floor(Math.random() * characters.length)];
+
+    if (userGuess === "a") {
+        console.log(computerGuess)
+    }
 }
-
 
 
 // Listen for user input
