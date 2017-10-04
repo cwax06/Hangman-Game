@@ -4,27 +4,30 @@
 var characters = ["Bob Sacamano", "Cousin Jeffrey", "Jack Klompus", "Jerry Seinfeld",
     "Elaine Benes", "Cosmo Kramer", "George Costanza",];
 
+var userText = document.getElementById("user-text");
+
 // Computer randomly select a possible answer from array
-
-for (var i = 0; i < characters.length; i++) {
-    console.log("Do you know " + characters[i]);
-}
-
-// Listen for user input
 
 
 
 document.onkeyup = function (event) {
     userText.textContent = event.key;
-};
 
-var userText = document.getElementById("user-text");
+    var event = characters[Math.floor(Math.random() * characters.length)];
+    console.log(characters[i]);
+}
+
+
+
+// Listen for user input
+
+
+
 
 // Compare user input with randomly selected answer
 
-if (characters[j].charAt(0) === "c" || characters[j].charAt(0) === "o") {
-    alert("Starts with a c or an o!");
-}
+
+
 
 // Display correct letters when selected
 
