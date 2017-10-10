@@ -2,38 +2,68 @@
 // Array of possible answers
 
 var characters = ["Bob Sacamano", "Cousin Jeffrey", "Jack Klompus", "Jerry Seinfeld",
-    "Elaine Benes", "Cosmo Kramer", "George Costanza",];
+    "Elaine Benes", "Cosmo Kramer", "George Costanza"];
 
-var userText = document.getElementById("user-text");
 
-// Computer randomly select a possible answer from array
+var randomNumber = Math.floor(Math.random() * characters.length);
 
-document.onkeyup = function (event) {
+var currentCharacter = characters[randomNumber];
 
-    var userGuess = event.key;
+var wrongGuesses = [];
 
-    var computerGuess = characters[Math.floor(Math.random() * characters.length)];
+var correctGuesses = [];
 
-    if (userGuess === "a") {
-        console.log(computerGuess)
-    }
-}
+var remainingGuesses = 15
+
+// Computer randomly select a possible answer from array (Name the function and then write to run)
+
+
+console.log(currentCharacter)
+
 
 
 // Listen for user input
 
+function mainGame(event) {
+    if (letterInWord(currentCharacter, event.key) === false) {
+        wrongGuesses.push(event.key)
+        remainingGuesses -= 1
+    } else {
+        correctGuesses.push(event.key)
+    }
+    console.log(wrongGuesses, correctGuesses)
+    console.log(remainingGuesses)
+    if (remainingGuesses === 0) {
+        console.log("No Soup for You!")
+    }
+}
+
+document.onkeyup = (mainGame);
+
+function letterInWord(currentCharacter, letter) {
+    var lower = currentCharacter.toLowerCase();
+    if (lower.indexOf(letter) === -1) {
+        return false
+    } else {
+        return true
+    }
+}
+
+
+// count down wrong guesses
+
+
+
+// Display all guesses below
 
 
 
 // Compare user input with randomly selected answer
 
 
-
-
 // Display correct letters when selected
 
 
-// Display all guesses below
 
 
 // All letters guessed that are NOT a part of answer is a strike (up to 10)
